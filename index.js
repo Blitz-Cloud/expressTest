@@ -8,10 +8,14 @@ const comments = [
   {
     user:"user",
     text:"I am a user"
+  },
+  {
+    user:"Blitz Cloud",
+    text:"Hello ,I like Wot"
   }
 ]
 
-app.set("view engine ","ejs");
+app.set("view engine","ejs");
 app.use(express.static(path.join(__dirname,"./node-modules/bootstrap/dist")));
 app.use(express.static(path.join(__dirname,"/public")));
 app.use(method_override("_method"))
