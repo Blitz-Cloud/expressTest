@@ -22,7 +22,9 @@ const comments = [
 app.set("view engine","ejs");
 app.use(express.static(path.join(__dirname,"./node-modules/bootstrap/dist")));
 app.use(express.static(path.join(__dirname,"/public")));
-app.use(method_override("_method"))
+app.use(method_override("_method"));
+app.use(express.urlencoded({ extended: true }));
+
 
 
 
@@ -31,6 +33,20 @@ app.get("/",(req,res)=>{
 })
 app.get('/comments',(req,res)=>{
   res.render("comments",{comments})
+})
+app.get("/comments/:id",(req,res)=>{
+  const {id}= req.params;
+  comments.find( (c) =>{
+    if( id === c.id){
+      res.render("show",{c})
+    }
+
+  })
+})
+app.post("/comments",(req,res)=>{
+    const data = req.body;
+    comments.push(data);
+    res.redirect("/comments");
 })
 
 
