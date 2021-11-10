@@ -31,7 +31,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/",(req,res)=>{
   res.render("index")
-})
+});
+
 app.get('/comments',(req,res)=>{
   res.render("comments",{comments})
 })
@@ -49,7 +50,7 @@ app.post("/comments",(req,res)=>{
     comments.push({...data , id:uuid()});
     res.redirect("/comments");
 })
-app.get("/comments/:id",(req,res)=>{
+app.get("/comments/:id/edit",(req,res)=>{
     const {id} = req.params;
     comments.find((c)=>{
         if( c === c.id){
@@ -66,6 +67,7 @@ app.path("/comments/:id",(req,res)=>{
         }
     })
     foundC.text = data;
+    res.redirect("/comments");
 })
 
 
