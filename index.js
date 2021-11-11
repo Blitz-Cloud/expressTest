@@ -44,6 +44,9 @@ app.get("/comments/:id",(req,res)=>{
     }
   })
 })
+app.get("/comments/add",(req,res)=>{
+  res.render("addC");
+})
 app.post("/comments",(req,res)=>{
     const data = req.body;
     comments.push({...data , id:uuid()});
