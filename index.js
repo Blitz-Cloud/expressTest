@@ -21,7 +21,7 @@ let comments = [
 ]
 
 app.set("view engine","ejs");
-app.use(express.static(path.join(__dirname,"./node-modules/bootstrap/dist")));
+app.use(express.static(path.join(__dirname,"./node_modules/bootstrap/dist")));
 app.use(express.static(path.join(__dirname,"/public")));
 app.use(method_override("_method"));
 app.use(express.urlencoded({ extended: true }));
@@ -36,6 +36,9 @@ app.get("/",(req,res)=>{
 app.get('/comments',(req,res)=>{
   res.render("comments",{comments})
 })
+app.get("/comments/add",(req,res)=>{
+  res.render("addC");
+})
 app.get("/comments/:id",(req,res)=>{
   const {id}= req.params;
   comments.find( (c) =>{
@@ -44,9 +47,7 @@ app.get("/comments/:id",(req,res)=>{
     }
   })
 })
-app.get("/comments/add",(req,res)=>{
-  res.render("addC");
-})
+
 app.post("/comments",(req,res)=>{
     const data = req.body;
     comments.push({...data , id:uuid()});
@@ -61,14 +62,14 @@ app.get("/comments/:id/edit",(req,res)=>{
     })
 })
 app.patch("/comments/:id",(req,res)=>{
-    const data = req.body.text;
+    const data = req.body;
     const {id} =req.params;
     let foundC = comments.find((c)=>{
         if( id === c.id){
              return c ;
         }
     })
-    foundC.text = data;
+    foundC.text = data.text;
     res.redirect("/comments");
 })
 

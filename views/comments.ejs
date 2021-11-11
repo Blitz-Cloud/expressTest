@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/css/bootstrap.css">
     <title>Comments</title>
 </head>
-<body>
-    <h1>This are all comments</h1>
+<body class="container">
+    <h1 class="text-center m-3">This are all comments</h1>
     <% for(c of comments){%>
         <h3><%= c.text %>  - <b><%= c.user %> </b> <a href="/comments/<%= c.id %> ">see details</a></h3>
     <% } %>  

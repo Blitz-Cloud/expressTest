@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>Edit</title>
 </head>
-<body>
+<body class="container border p-3">
+  <div class"m-3">
     <h1>Edit:</h1>
-    <form action="/comments/<%= c.id %>?_method=PATCH"
-    method="post">
-        <textarea name="text" id="" cols="30" rows="10">
-            <%= c.text %> 
-        </textarea>
-        <button>Edit</button>
-    </form>
+      <form action="/comments/<%= c.id %>?_method=PATCH"
+      method="post">
+        <div class="form-floating">
+          <textarea name = "text" class="form-control" placeholder="Leave a comment here" id="floatingTextarea">
+            <%= c.text %>
+          </textarea>
+          <label for="floatingTextarea">Comments</label>
+        </div>
+          <button>Edit</button>
+      </form>
+  </div>
+    
+
+  
+
+    
 </body>
 </html>
