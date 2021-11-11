@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <title>Edit</title>
-</head>
-<body class="container border p-3">
-  <div class="container m-3 ">
-    <h1 class="row">Edit:</h1>
-      <form class=" container row" action="/comments/<%= c.id %>?_method=PATCH"
-      method="post">
+  </head>
+  <body class="container border p-3">
+    <div>
+      <h1>Edit:</h1>
+      <form
+        class="container"
+        action="/comments/<%= c.id %>?_method=PATCH"
+        method="post"
+      >
         <div class="form-floating">
-          <textarea  name = "text" class="form-control" placeholder="Leave a comment here" id="floatingTextarea">
+          <textarea
+            name="text"
+            class="text-start"
+            placeholder="Leave a comment here"
+            id="floatingTextarea"
+            cols="100%"
+            rows="5"
+          >
             <%= c.text %>
           </textarea>
         </div>
-          <button class="row">Edit</button>
+        <button type="submit" class="btn btn-primary mt-3">Edit</button>
       </form>
-  </div>   
-</body>
+    </div>
+  </body>
 </html>

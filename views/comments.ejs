@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=`">
-    <link rel="stylesheet" href="/css/bootstrap.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=`" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
     <title>Comments</title>
-</head>
-<body class="container">
+  </head>
+  <body class="container">
     <h1 class="text-center m-3">This are all comments</h1>
     <% for(c of comments){%>
-        <h3><%= c.text %>  - <b><%= c.user %> </b> <a href="/comments/<%= c.id %> ">see details</a></h3>
-    <% } %>  
+    <h3>
+      <%= c.text %> - <b><%= c.user %> </b>
+      <a href="/comments/<%= c.id %> ">see details</a>
+    </h3>
+    <% } %>
     <a href="/comments/add">Add comment</a>
-</body>
+  </body>
 </html>
