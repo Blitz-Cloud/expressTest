@@ -8,23 +8,17 @@
     <title>Edit</title>
 </head>
 <body class="container border p-3">
-  <div class"m-3">
-    <h1>Edit:</h1>
-      <form action="/comments/<%= c.id %>?_method=PATCH"
+  <div class="container m-3 ">
+    <h1 class="row">Edit:</h1>
+      <form class=" container row" action="/comments/<%= c.id %>?_method=PATCH"
       method="post">
         <div class="form-floating">
-          <textarea name = "text" class="form-control" placeholder="Leave a comment here" id="floatingTextarea">
+          <textarea  name = "text" class="form-control" placeholder="Leave a comment here" id="floatingTextarea">
             <%= c.text %>
           </textarea>
-          <label for="floatingTextarea">Comments</label>
         </div>
-          <button>Edit</button>
+          <button class="row">Edit</button>
       </form>
-  </div>
-    
-
-  
-
-    
+  </div>   
 </body>
 </html>
