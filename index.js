@@ -7,7 +7,7 @@ const {v4:uuid} = require("uuid")
 const app = express();
 const port = 8080;
 
-const comments = [
+let comments = [
   {
     id:uuid(),
     user:"user",
@@ -42,7 +42,6 @@ app.get("/comments/:id",(req,res)=>{
     if( id === c.id){
       res.render("show",{c})
     }
-
   })
 })
 app.post("/comments",(req,res)=>{
@@ -53,17 +52,17 @@ app.post("/comments",(req,res)=>{
 app.get("/comments/:id/edit",(req,res)=>{
     const {id} = req.params;
     comments.find((c)=>{
-        if( c === c.id){
+        if( id === c.id){
             res.render("edit",{c});
         }
     })
 })
-app.path("/comments/:id",(req,res)=>{
-    const data = req.body;
+app.patch("/comments/:id",(req,res)=>{
+    const data = req.body.text;
     const {id} =req.params;
-    const foundC = comments.filter((c)=>{
-        if(c.id === id){
-            return c;
+    let foundC = comments.find((c)=>{
+        if( id === c.id){
+             return c ;
         }
     })
     foundC.text = data;
