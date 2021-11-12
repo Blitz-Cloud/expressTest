@@ -12,9 +12,9 @@
     <% for(c of comments){%>
     <h3>
       <%= c.text %> - <b><%= c.user %> </b>
-      <a class="btn btn-primary" href="/comments/<%= c.id %> ">Details</a>
+      <a class="btn btn-primary btn-sm" href="/comments/<%= c.id %> ">Details</a>
     </h3>
     <% } %>
-    <a href="/comments/add">Add comment</a>
+    <a class="btn btn-primary btn-sm" href="/comments/add">Add comment</a>
   </body>
 </html>

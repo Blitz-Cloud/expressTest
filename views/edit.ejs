@@ -15,19 +15,11 @@
         action="/comments/<%= c.id %>?_method=PATCH"
         method="post"
       >
-        <div>
-          <textarea
-            name="text"
-            class="text-start"
-            placeholder="Leave a comment here"
-            id="floatingTextarea"
-            cols="100%"
-            rows="5"
-          >
-            <%= c.text %>
-          </textarea>
-        </div>
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea">c.text</textarea>
+        <label for="floatingTextarea">Comments</label>
         <button type="submit" class="btn btn-primary mt-3">Edit</button>
+      </div> 
       </form>
     </div>
   </body>
