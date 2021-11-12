@@ -6,18 +6,7 @@ const { v4: uuid } = require("uuid");
 const app = express();
 const port = 8080;
 
-let comments = [
-  {
-    id: uuid(),
-    user: "user",
-    text: "I am a user",
-  },
-  {
-    id: uuid(),
-    user: "Blitz Cloud",
-    text: "Hello ,I like Wot",
-  },
-];
+let comments = [];
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "./node_modules/bootstrap/dist")));
@@ -58,14 +47,14 @@ app.get("/comments/:id/edit", (req, res) => {
   });
 });
 app.patch("/comments/:id", (req, res) => {
-  const data = req.body;
+  const data = req.body.text;
   const { id } = req.params;
   let foundC = comments.find((c) => {
     if (id === c.id) {
       return c;
     }
   });
-  foundC.text = data.text;
+  foundC.text = data;
   res.redirect("/comments");
 });
 
